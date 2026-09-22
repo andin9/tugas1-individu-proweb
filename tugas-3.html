@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas-Kalkulator</title>
+</head>
+<body>
+    <h2>KALKULATOR SEDERHANA</h2>
+    <form name="form-group">
+        <label for="angka1">Angka Pertama :</label>
+        <input type="number" name="Angka Pertama" size="30" id="Angka1">
+        <label for="Angka2">Angka kedua :</label>
+        <input type="number" name="Angka Kedua" size="30" id="Angka2">
+
+
+        <button onclick="hitung('+')">Tambah (+)</button>
+        <button onclick="hitung('-')">Kurang (-)</button>
+        <button onclick="hitung('*')">Kali (*)</button>
+        <button onclick="hitung('/')">Bagi (/)</button>
+    
+
+        <h3>Hasil: <span id="hasil">-</span></h3>
+    </form>
+
+    <script>
+        function hitung(operator){
+            let input1 = document.getElementById('Angka1').value;
+            let input2 = document.getElementById('Angka2').value;
+
+            let num1 = Number(input1);
+            let num2 = Number(input2);
+            let hasil = 0;
+
+             if (input1 === "" || input2 === "") {
+                alert("Harap masukkan kedua angka terlebih dahulu!");
+                return;
+            }
+
+        
+        
+            switch (operator) {
+                case '+':
+                    hasil = num1 + num2;
+                    break;
+                case '-':
+                    hasil = num1 - num2;
+                    break;
+                case '*':
+                    hasil = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        alert("Error: Pembagian dengan nol tidak diperbolehkan!");
+                        return;
+                    }
+                    hasil = num1 / num2;
+                    break;
+            }
+
+        
+            document.getElementById('hasil').innerText = hasil;
+        
+        }
+    </script>
+</body>
+</html>
